@@ -1,0 +1,115 @@
+
+@dividerBorder: 1px solid lighten(@subnavBackgroundHighlight, 5%);
+
+.subnav {
+  #gradient > .vertical(@subnavBackgroundHighlight, @subnavBackground);
+  .box-shadow(~"0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1)");
+  
+  .border-radius(4px);
+  
+  font-family: @subnavFontFamily;
+  min-height: @subnavHeight;
+  overflow: hidden;
+  
+  .nav {
+    .clearfix;
+    
+    margin: 0;
+    padding: 0;
+    
+    & > li {
+      float: left;
+      margin: 0 @baseFontSize / 2;
+      padding: 0;
+      
+      a {
+        @totalMargin: (@subnavHeight - @baseLineHeight);
+        display: block;
+        margin: (@totalMargin / 2 + 2) 0 (@totalMargin / 2 - 2);
+        
+        color: @subnavText;
+        -webkit-tap-highlight-color: transparent;
+        
+        i {
+          margin: 2px 0 0;
+        }
+
+        &:hover {
+          color: @linkColorHover;
+          background: none;
+        }
+
+        &.active {
+          color: @linkColor;
+        }
+      }
+    }
+    li.divider-vertical {
+      height: @subnavHeight;
+      width: 1px;
+      margin: 0 9px;
+      overflow: hidden;
+      border-right: @dividerBorder;
+      #gradient > .vertical(darken(@subnavBackgroundHighlight, 10%), darken(@subnavBackground, 10%));
+    }
+  }
+  
+  .navbar-search {
+    .navbarVerticalAlign(30px);
+  }
+}
+
+
+/**
+ * RESPONSIVENESS
+ */
+
+body {  padding-top: @navbarHeight + @subnavHeight; }
+@media (max-width: 767px) {
+  body {
+    padding-top: 0;
+  }
+}
+.subnav {
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .subnav {
+    position: static;
+    top: auto;
+    z-index: auto;
+    width: auto;
+    height: auto;
+  }
+  .subnav .nav > li {
+    float: none;
+    
+    &.divider-vertical {
+      height: 1px;
+      width: auto;
+      border-bottom: @dividerBorder;
+    }
+  }
+  .subnav .pull-right {
+    float: none;
+  }
+}
+@media (min-width: 768px) {
+  .subnav-fixed {
+    position: fixed;
+    top: @navbarHeight;
+    left: 0;
+    right: 0;
+    z-index: 1021;
+  }
+ .subnav-fixed .nav {
+    width: 938px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 1210px) {
+  .subnav-fixed .nav {
+    width: 1168px;
+    padding-left: 0;
+  }
+}

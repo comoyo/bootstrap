@@ -1,0 +1,39 @@
+/**
+ * App.less
+ * 
+ * Sets variables for use with bootstrap.
+ */
+
+@text-size: 13px;
+
+@grid-size: 9;
+@grid-column-width: 80px;
+@grid-column-spacing: @text-size * 3.00;
+
+@master-span: 3;
+@detail-span: 6;
+
+@master-width: @master-span * @grid-column-width + (@master-span - 1) * @grid-column-spacing;
+@detail-width: @detail-span * @grid-column-width + (@detail-span - 1) * @grid-column-spacing;
+
+@pane-padding: 13px;
+
+
+@text-color: #f0f0f0;
+@text-color-secondary: #ff1e50;
+@text-color-tertiary: #beffff;
+@color-body: #141414;
+@color-gray: #737373;
+
+@control-bg-from: #222222 + #101010;
+@control-bg-to: #141414 + #040404;
+
+@textfield-input-bg: #535353;
+
+@button-padding-x: 15px;
+
+@control-input-padding: 10px;
+@control-input-icon-width: 20px;
+
+// Load bootstrap
+@import "bootstrap";
